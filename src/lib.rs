@@ -33,6 +33,7 @@ pub mod sys {
     pub const OPEN:  u64 = 11;
     pub const READ:  u64 = 12;
     pub const CLOSE: u64 = 13;
+    pub const WRITE_FILE: u64 = 14;
 }
 
 /// Теги IPC-сообщений (для `Message::tag`).
