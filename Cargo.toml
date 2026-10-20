@@ -1,0 +1,8 @@
+[package]
+name = "kuberve-abi"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "kuberve_abi"
+path = "src/lib.rs"

@@ -1,0 +1,36 @@
+#![no_std]
+
+//! Kuberve ABI: общие типы и константы между kernel, libc, userspace.
+//!
+//! Этот crate НЕ содержит логики, только структуры и константы.
+//! Меняется только при изменении бинарного интерфейса syscall.
+
+/// Сообщение IPC. Фиксированный размер, 64 байта.
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Message {
+    pub tag: u64,
+    pub data: [u64; 7],
+}
+
+/// Номера syscall. ARM64 ABI: `x8` = номер, `x0..x5` = аргументы, `x0` = возврат.
+pub mod sys {
+    pub const YIELD:    u64 = 0;
+    pub const WRITE:    u64 = 1;
+    pub const EXIT:     u64 = 2;
+    pub const SLEEP:    u64 = 3;
+    pub const GETPID:   u64 = 4;
+    pub const SEND:     u64 = 5;
+    pub const RECV:     u64 = 6;
+    pub const IRQ_ACK:  u64 = 7;
+    pub const TRY_SEND: u64 = 8;
+    pub const TRY_RECV: u64 = 9;
+}
+
+/// Теги IPC-сообщений (для `Message::tag`).
+pub mod tags {
+    /// WRITE: data[0] = ptr, data[1] = len
+    pub const WRITE: u64 = 1;
+    /// IRQ: data[0] = intid
+    pub const IRQ:   u64 = 2;
+}
