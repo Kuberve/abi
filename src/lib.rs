@@ -6,6 +6,10 @@
 //! Меняется только при изменении бинарного интерфейса syscall.
 
 /// Сообщение IPC. Фиксированный размер, 64 байта.
+///
+/// Семантика `data`:
+/// - `tag=1 (WRITE)`: `data[0] = len`, `data[1..7] = байты` (48 байт payload)
+/// - `tag=2 (IRQ)`:   `data[0] = intid`, остальное 0
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct Message {
