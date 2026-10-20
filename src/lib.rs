@@ -30,6 +30,9 @@ pub mod sys {
     pub const TRY_SEND: u64 = 8;
     pub const TRY_RECV: u64 = 9;
     pub const SBRK:     u64 = 10;
+    pub const OPEN:  u64 = 11;
+    pub const READ:  u64 = 12;
+    pub const CLOSE: u64 = 13;
 }
 
 /// Теги IPC-сообщений (для `Message::tag`).
