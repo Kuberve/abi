@@ -29,6 +29,7 @@ pub mod sys {
     pub const IRQ_ACK:  u64 = 7;
     pub const TRY_SEND: u64 = 8;
     pub const TRY_RECV: u64 = 9;
+    pub const SBRK:     u64 = 10;
 }
 
 /// Теги IPC-сообщений (для `Message::tag`).
