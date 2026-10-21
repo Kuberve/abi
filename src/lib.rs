@@ -34,6 +34,10 @@ pub mod sys {
     pub const READ:  u64 = 12;
     pub const CLOSE: u64 = 13;
     pub const WRITE_FILE: u64 = 14;
+    pub const SOCKET:   u64 = 15;
+    pub const BIND:     u64 = 16;
+    pub const SENDTO:   u64 = 17;
+    pub const RECVFROM: u64 = 18;
 }
 
 /// Теги IPC-сообщений (для `Message::tag`).
@@ -49,4 +53,9 @@ pub mod flags {
     pub const O_CREAT:  u64 = 1;
     pub const O_TRUNC:  u64 = 2;
     pub const O_APPEND: u64 = 4;
+}
+
+pub mod socket_const {
+    pub const AF_INET: u64 = 2;
+    pub const SOCK_DGRAM: u64 = 2;
 }
