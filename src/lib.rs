@@ -38,6 +38,9 @@ pub mod sys {
     pub const BIND:     u64 = 16;
     pub const SENDTO:   u64 = 17;
     pub const RECVFROM: u64 = 18;
+    pub const CONNECT:  u64 = 19;
+    pub const TCP_SEND: u64 = 20;
+    pub const TCP_RECV: u64 = 21;
 }
 
 /// Теги IPC-сообщений (для `Message::tag`).
