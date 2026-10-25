@@ -45,6 +45,10 @@ pub mod sys {
     pub const KILL:     u64 = 23;
     pub const WAIT:     u64 = 24;
     pub const STAT:     u64 = 25;
+    pub const MKDIR:    u64 = 26;
+    pub const UNLINK:   u64 = 27;
+    pub const RMDIR:    u64 = 28;
+    pub const READDIR:  u64 = 29;
 }
 
 /// Теги IPC-сообщений (для `Message::tag`).
@@ -74,4 +78,15 @@ pub struct Stat {
     pub size: u32,      // 0 для директорий
     pub is_dir: u32,    // 0 = файл, 1 = директория
     pub cluster: u32,   // first cluster
+}
+
+/// Запись в директории, возвращаемая sys_readdir.
+/// 32 байта, repr(C).
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DirEntry {
+    pub name: [u8; 20],   // 8.3 → "INIT" или "INIT.ELF", null-terminated uppercase
+    pub is_dir: u32,      // 0 = file, 1 = dir
+    pub size: u32,        // 0 для директорий
+    pub cluster: u32,     // first cluster
 }
