@@ -44,6 +44,7 @@ pub mod sys {
     pub const SPAWN:    u64 = 22;
     pub const KILL:     u64 = 23;
     pub const WAIT:     u64 = 24;
+    pub const STAT:     u64 = 25;
 }
 
 /// Теги IPC-сообщений (для `Message::tag`).
@@ -64,4 +65,13 @@ pub mod flags {
 pub mod socket_const {
     pub const AF_INET: u64 = 2;
     pub const SOCK_DGRAM: u64 = 2;
+}
+
+/// Результат sys_stat. repr(C), 12 байт.
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct Stat {
+    pub size: u32,      // 0 для директорий
+    pub is_dir: u32,    // 0 = файл, 1 = директория
+    pub cluster: u32,   // first cluster
 }
