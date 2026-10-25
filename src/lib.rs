@@ -42,6 +42,8 @@ pub mod sys {
     pub const TCP_SEND: u64 = 20;
     pub const TCP_RECV: u64 = 21;
     pub const SPAWN:    u64 = 22;
+    pub const KILL:     u64 = 23;
+    pub const WAIT:     u64 = 24;
 }
 
 /// Теги IPC-сообщений (для `Message::tag`).
