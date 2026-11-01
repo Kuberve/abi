@@ -49,6 +49,7 @@ pub mod sys {
     pub const UNLINK:   u64 = 27;
     pub const RMDIR:    u64 = 28;
     pub const READDIR:  u64 = 29;
+    pub const GUI_CREATE_WINDOW: u64 = 30;
 }
 
 /// Теги IPC-сообщений (для `Message::tag`).
