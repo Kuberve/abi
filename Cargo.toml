@@ -1,7 +1,12 @@
 [package]
 name = "kuberve-abi"
-version = "0.1.0"
+version = "0.14.4"
 edition = "2021"
+license = "MIT"
+repository = "https://github.com/Kuberve/abi"
+authors = ["Simonov Zakhar <zaharsimonov6087@gmail.com> (BlackZakha)"]
+description = "Kuberve ABI — syscall numbers, Message format, shared types"
+readme = "README.md"
 
 [lib]
 name = "kuberve_abi"
